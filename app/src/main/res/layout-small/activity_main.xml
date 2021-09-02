@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#4D6568"
+    >
+
+    <TextView
+        android:id="@+id/numberField"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textColor="#DAEDE7"
+        android:gravity="end|center_vertical"
+        android:ellipsize="start"
+        android:singleLine="true"
+
+
+        android:textSize="40sp"
+        />
+
+    <TextView
+        android:id="@+id/resultField"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textColor="#DAEDE7"
+        android:gravity="end|center_vertical"
+
+
+
+        android:textSize="30sp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#B1DCD2"
+        android:padding="1dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+
+            >
+
+            <TextView
+
+                android:id="@+id/tvSqrt"
+                android:text="√"
+                style="@style/ActBtn"/>
+            <TextView
+                android:id="@+id/tvOpen"
+                android:text="("
+                style="@style/ActBtn"/>
+            <TextView
+                android:id="@+id/tvClose"
+                android:text=")"
+                style="@style/ActBtn"/>
+
+            <TextView
+                android:id="@+id/tvCE"
+                android:text="CE"
+                style="@style/NumBtn"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+
+            >
+            <TextView
+                android:id="@+id/tvSeven"
+                android:text="7"
+                style="@style/NumBtn"/>
+            <TextView
+                android:id="@+id/tvEight"
+                android:text="8"
+                style="@style/NumBtn"/>
+            <TextView
+                android:id="@+id/tvNine"
+                android:text="9"
+                style="@style/NumBtn"/>
+
+            <TextView
+                android:id="@+id/tvMult"
+                android:text="*"
+                style="@style/ActBtn"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+
+            >
+            <TextView
+                android:id="@+id/tvFour"
+                android:text="4"
+                style="@style/NumBtn"/>
+            <TextView
+                android:id="@+id/tvFive"
+                android:text="5"
+                style="@style/NumBtn"/>
+            <TextView
+                android:id="@+id/tvSix"
+                android:text="6"
+                style="@style/NumBtn"/>
+
+            <TextView
+                android:id="@+id/tvDevide"
+                android:text="/"
+                style="@style/ActBtn"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+
+            >
+
+            <TextView
+                android:id="@+id/tvOne"
+                android:text="1"
+                style="@style/NumBtn"/>
+            <TextView
+                android:id="@+id/tvTwo"
+                android:text="2"
+                style="@style/NumBtn"/>
+            <TextView
+                android:id="@+id/tvThree"
+                android:text="3"
+                style="@style/NumBtn"/>
+
+            <TextView
+                android:id="@+id/tvMinus"
+                android:text="-"
+                style="@style/ActBtn"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+
+            >
+
+            <TextView
+                android:id="@+id/tvDot"
+                android:text="."
+                style="@style/NumBtn"/>
+            <TextView
+                android:id="@+id/tvZero"
+                android:text="0"
+                style="@style/NumBtn"/>
+
+            <TextView
+                android:id="@+id/tvAnswer"
+                android:text="="
+                style="@style/CEBtn"/>
+            <TextView
+                android:id="@+id/tvPlus"
+                android:text="+"
+                style="@style/ActBtn"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</LinearLayout>

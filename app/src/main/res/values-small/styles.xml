@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="NumBtn">
+    <item name="android:layout_weight">1</item>
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:background">#4D6568</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:textColor">#DAEDE7</item>
+    <item name="android:gravity">center</item>
+    <item name="android:layout_margin">1dp</item>
+
+
+</style>
+
+<style name="ActBtn">
+    <item name="android:layout_weight">1</item>
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:background">#C16471</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:textColor">#DAEDE7</item>
+    <item name="android:gravity">center</item>
+    <item name="android:layout_margin">1dp</item>
+
+</style>
+
+<style name="CEBtn">
+    <item name="android:layout_weight">1</item>
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:background">#F0D3C2</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:textColor">#C16471</item>
+    <item name="android:gravity">center</item>
+    <item name="android:layout_margin">1dp</item>
+
+</style>
+</resources>
