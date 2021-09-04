@@ -1,22 +1,30 @@
 package com.example.calculator
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.example.calculator.db.DbManager
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
 
 
 class MainActivity : AppCompatActivity() {
-    private val TAG:String = "ERROR"
-    var isDotted:Boolean = false
-    val operators = listOf("+","-","*","/")
-    var prevSym:String? = null
+    private val TAG: String = "ERROR"
+    private var isDotted: Boolean = false
+    private val operators = listOf("+", "-", "*", "/")
+    private var prevSym: String? = null
+
+    val DbManager = DbManager(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        DbManager.open()
 
         tvSqrt.setOnClickListener { addSymbol("√") }
         tvOpen.setOnClickListener { addSymbol("(") }
@@ -36,16 +44,35 @@ class MainActivity : AppCompatActivity() {
         tvNine.setOnClickListener { addSymbol("9") }
         tvZero.setOnClickListener { addSymbol("0") }
         tvDot.setOnClickListener { addSymbol(".") }
-        tvCE.setOnLongClickListener{ delAll() }
-        tvCE.setOnClickListener{ delOne() }
+        tvCE.setOnLongClickListener { delAll() }
+        tvCE.setOnClickListener { delOne() }
         tvAnswer.setOnClickListener { gotoAns() }
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.btnHistory) {
+            val i = Intent(this, History::class.java)
+            startActivity(i)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroy() {
+        DbManager.close()
+        super.onDestroy()
+    }
+
     override fun onSaveInstanceState(outState: Bundle) {
         outState.run {
-            putString("numField",numberField.text.toString())
-            putString("resField",resultField.text.toString())
+            putString("numField", numberField.text.toString())
+            putString("resField", resultField.text.toString())
         }
 
         super.onSaveInstanceState(outState)
@@ -58,11 +85,14 @@ class MainActivity : AppCompatActivity() {
         resultField.text = savedInstanceState.getString("resField")
     }
 
+
     fun gotoAns(){
         val calc = Calculator(numberField.text.toString())
         try {
             val answer = calc.getAnswer()
             resultField.text = answer.toString()
+
+            DbManager.insertToDb(numberField.text.toString() + "=", resultField.text.toString())
 
         }catch (e:Exception){
             resultField.text = ""
@@ -70,7 +100,9 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG,e.toString())
         }
 
+
     }
+
 
     fun delAll():Boolean{
         numberField.text = ""
@@ -118,4 +150,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+
 }

@@ -6,7 +6,8 @@
     <string name="MINUS">-</string>
     <string name="MULT">*</string>
     <string name="DEVIDE">/</string>
-    <string name="SQRT"></string>
+    <string name="SQRT">√</string>
+    <string name="history">History</string>
 
 
 </resources>
