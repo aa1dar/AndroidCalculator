@@ -1,12 +1,12 @@
 package com.example.calculator
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.example.calculator.calchelper.Calculator
 import com.example.calculator.db.DbManager
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
@@ -85,7 +85,6 @@ class MainActivity : AppCompatActivity() {
         resultField.text = savedInstanceState.getString("resField")
     }
 
-
     fun gotoAns(){
         val calc = Calculator(numberField.text.toString())
         try {
@@ -99,10 +98,7 @@ class MainActivity : AppCompatActivity() {
             numberField.text = "Ошибка"
             Log.d(TAG,e.toString())
         }
-
-
     }
-
 
     fun delAll():Boolean{
         numberField.text = ""

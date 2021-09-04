@@ -11,7 +11,7 @@ class DbManager(val context: Context) {
 
     fun open() {
         db = DbHelper.writableDatabase
-        deleteSomeRows(20)
+
 
     }
 
@@ -49,13 +49,15 @@ class DbManager(val context: Context) {
     }
 
     fun close() {
+        deleteSomeRows(20)
         DbHelper.close()
+
 
     }
 
     //Delete old history of calculations (when there's over $count expressions)
     fun deleteSomeRows(count: Int) {
-        val array = arrayOf(count.toString())
+
         db?.execSQL(
             "DELETE FROM ${DbNameClass.TABLE_NAME} WHERE _id NOT IN (" +
                     "SELECT _id FROM ${DbNameClass.TABLE_NAME} ORDER BY _id DESC LIMIT $count);"

@@ -1,4 +1,4 @@
-package com.example.calculator
+package com.example.calculator.calchelper
 import kotlin.Number as Double
 
 sealed class TokenType {
@@ -31,6 +31,6 @@ object RPAREN : TokenType() {
 object LPAREN : TokenType() {
     override val precidence: Int = 0
 }
-data class NUM(val value: Double) :TokenType() {
+data class NUM(val value: Double) : TokenType() {
     override val precidence: Int = 0
 }

@@ -1,46 +1,13 @@
-package com.example.calculator
+package com.example.calculator.adapter
 
-
+import android.annotation.SuppressLint
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.BaseAdapter
-import android.widget.ListView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import com.example.calculator.db.DbManager
 
-
-class History : AppCompatActivity() {
-
-    val DbManager = DbManager(this)
-    var adapter: MyListAdapter? = null
-    lateinit var tvList: ListView
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_history)
-
-        tvList = findViewById(R.id.tvList)
-
-        // присваиваем адаптер списку
-        adapter = MyListAdapter(this, getArray())
-        // присваиваем адаптер списку
-        tvList.adapter = adapter
-    }
-
-    fun getArray(): ArrayList<Pair<String, String>> {
-        DbManager.open()
-        val array = DbManager.readOfDb()
-
-        DbManager.close()
-        return array
-    }
-
-}
 
 class MyListAdapter(
     private val context: Context,
@@ -61,11 +28,11 @@ class MyListAdapter(
         return position.toLong()
     }
 
+    @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
 
-
         val (exp, res) = arrayList[position]
-        var convertView = convertView
+        var convertView: View? = convertView
         convertView =
             LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_2, parent, false)
         expression = convertView.findViewById(android.R.id.text1)
@@ -76,3 +43,4 @@ class MyListAdapter(
         return convertView
     }
 }
+

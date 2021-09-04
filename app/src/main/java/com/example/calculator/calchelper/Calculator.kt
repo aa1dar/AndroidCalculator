@@ -1,4 +1,4 @@
-package com.example.calculator
+package com.example.calculator.calchelper
 
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -68,7 +68,7 @@ class Calculator(val str:String) {
         {
             if (shuntingStack.last is NUM || shuntingStack.last == LPAREN || shuntingStack.last == RPAREN)
             {
-                gPostfixQueue.clear();
+                gPostfixQueue.clear()
                 throw Exception("Non-operator on shunting stack")
             }
             else gPostfixQueue.addLast(shuntingStack.removeLast())
@@ -99,9 +99,9 @@ class Calculator(val str:String) {
             }
 
         }
-        if (rpevalStack.size!=1)
-            throw Exception("Invalid postfix");
-        else return rpevalStack.last.toDouble();
+        if (rpevalStack.size != 1)
+            throw Exception("Invalid postfix")
+        else return rpevalStack.last.toDouble()
     }
 
 }
